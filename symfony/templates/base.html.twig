@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        {%  if metaTitle is defined %}
+            <title>{{ metaTitle }}</title>
+        {% else %}
+            <title>Proficio Media - Affiliate Marketing</title>
+        {% endif %}
+
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="author" content="Proficio Media" />
+
+        <!-- Stylesheets
+        ============================================= -->
+        <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700|Roboto:300,400,500,700&display=swap" rel="stylesheet" type="text/css" />
+        <link rel="stylesheet" href="/canvas-theme/css/bootstrap.css" type="text/css" />
+        <link rel="stylesheet" href="/canvas-theme/css/style.css" type="text/css" />
+        {#<link rel="stylesheet" href="style.css" type="text/css" />#}
+
+        <!-- One Page Module Specific Stylesheet -->
+        <link rel="stylesheet" href="/canvas-theme/one-page/onepage.css" type="text/css" />
+        <!-- / -->
+
+        <link rel="stylesheet" href="/canvas-theme/css/dark.css" type="text/css" />
+        <link rel="stylesheet" href="/canvas-theme/css/font-icons.css" type="text/css" />
+        <link rel="stylesheet" href="/canvas-theme/one-page/css/et-line.css" type="text/css" />
+        <link rel="stylesheet" href="/canvas-theme/css/animate.css" type="text/css" />
+        <link rel="stylesheet" href="/canvas-theme/css/magnific-popup.css" type="text/css" />
+
+        <link rel="stylesheet" href="/canvas-theme/one-page/css/fonts.css" type="text/css" />
+
+        <link rel="stylesheet" href="/canvas-theme/css/custom.css" type="text/css" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        <!-- JavaScripts
+    	============================================= -->
+        <script src="/canvas-theme/js/jquery.js"></script>
+        <script src="/canvas-theme/js/plugins.min.js"></script>
+        <script src="https://maps.google.com/maps/api/js?key=AIzaSyAO2BYvn4xyrdisvP8feA4AS_PGZFxJDp4"></script>
+
+        <!-- Footer Scripts
+        ============================================= -->
+        <script src="/canvas-theme/js/functions.js"></script>
+
+        {% if metaDescription is defined %}
+            <meta name="description" content="{{ metaDescription }}">
+        {% else %}
+            <meta name="description" content="Proficio Media - Affiliate Marketing">
+        {% endif %}
+
+        {% block stylesheets %}{% endblock %}
+        {% block javascripts %}{% endblock %}
+    </head>
+
+    <body class="stretched">
+
+        <style>
+            .scw-switcher-wrap,.scw-trigger-icon{position:fixed;left:auto;background-color:#fff}.scw-trigger-icon{width:44px;height:44px;top:121px;right:26px;border:0;padding:0;text-align:center;z-index:5;cursor:pointer}.scw-trigger-icon i{font-size:18px}.scw-switcher-wrap.scw-switcher-open i:nth-of-type(1),.scw-switcher-wrap:not(.scw-switcher-open) i:nth-of-type(2){display:none}.scw-switcher-wrap{top:120px;right:25px;padding:23px;width:0;height:0;border:1px solid rgba(0,0,0,.09);border-radius:3px;box-shadow:0 13px 42px 11px rgba(0,0,0,.05);z-index:9999;overflow:hidden;-webkit-transition:all .45s ease;-o-transition:all .45s ease;transition:all .45s ease}.scw-switcher-wrap.scw-switcher-open{width:300px;height:70%;padding:35px 25px;overflow-y:scroll}.scw-switcher-wrap .widget{margin:0}.scw-switcher-wrap .line,.scw-switcher-wrap .widget{opacity:0;-webkit-transition:opacity 0s ease;-o-transition:opacity 0s ease;transition:opacity 0s ease}html{font-size:16px!important}.scw-switcher-wrap.scw-switcher-open .line,.scw-switcher-wrap.scw-switcher-open .widget{opacity:1;-webkit-transition:opacity .3s .4s ease;-o-transition:opacity .3s .4s ease;transition:opacity .3s .4s ease}.scw-switcher-wrap .widget h4{font-size:14px;letter-spacing:1px;margin-bottom:15px}.scw-switcher-wrap .btn-container{margin:0 -5px -5px 0}.scw-switcher-wrap .btn{margin:0 5px 5px 0}.scw-switcher-wrap .row{margin:0 -5px}.scw-switcher-wrap .col-6{padding:5px}
+        </style>
+
+        <!-- Document Wrapper
+        ============================================= -->
+        <div id="wrapper" class="clearfix">
+
+            <!-- Header
+            ============================================= -->
+            <header id="header" class="full-header header-size-custom" data-sticky-shrink="false">
+                <div id="header-wrap">
+                    <div class="container">
+                        <div class="header-row">
+
+                            <!-- Logo
+                            ============================================= -->
+                            <div id="logo">
+                                <a href="{{ path('web_homepage') }}" class="standard-logo" data-dark-logo="one-page/images/canvasone-dark.png"><img src="/canvas-theme/PROFICIO.png" alt="Proficio Media"></a>
+                                <a href="{{ path('web_homepage') }}" class="retina-logo" data-dark-logo="one-page/images/canvasone-dark@2x.png"><img src="/canvas-theme/PROFICIO.png" alt="Proficio Media"></a>
+                            </div><!-- #logo end -->
+
+                            <div id="primary-menu-trigger">
+                                <svg class="svg-trigger" viewBox="0 0 100 100"><path d="m 30,33 h 40 c 3.722839,0 7.5,3.126468 7.5,8.578427 0,5.451959 -2.727029,8.421573 -7.5,8.421573 h -20"></path><path d="m 30,50 h 40"></path><path d="m 70,67 h -40 c 0,0 -7.5,-0.802118 -7.5,-8.365747 0,-7.563629 7.5,-8.634253 7.5,-8.634253 h 20"></path></svg>
+                            </div>
+
+                            <!-- Primary Navigation
+                            ============================================= -->
+                            <nav class="primary-menu">
+
+                                <ul class="one-page-menu menu-container" data-easing="easeInOutExpo" data-speed="1250" data-offset="65">
+
+                                </ul>
+
+                            </nav><!-- #primary-menu end -->
+
+                        </div>
+                    </div>
+                </div>
+                <div class="header-wrap-clone"></div>
+            </header><!-- #header end -->
+
+            <!-- Content
+		============================================= -->
+            <section id="content">
+                <div class="content-wrap py-0">
+                    {% block body %}{% endblock %}
+
+                </div>
+            </section>
+
+            <!-- Footer
+		============================================= -->
+            <footer id="footer" class="dark border-0">
+                <div id="copyrights">
+                    <div class="container center clearfix">
+                        &copy; Proficio Media 2021 | All Rights Reserved
+                    </div>
+                </div>
+
+            </footer><!-- #footer end -->
+        </div>
+    </body>
+</html>

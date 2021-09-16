@@ -1,0 +1,4 @@
+### WebController
+web_homepage:
+    path: /
+    controller: App\Controller\WebController::homepage
