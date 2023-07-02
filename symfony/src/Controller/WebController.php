@@ -19,8 +19,8 @@ class WebController extends AbstractController
     public function homepage(Request $request)
     {
 
-        $metaTitle = 'Proficio Media | Affiliate Marketing & Online Shopping Exports';
-        $metaDescription = 'Here at Proficio Media, we pride ourselves on our extensive knowledge of Affiliate Marketing & Online Shopping, helping brands scale to 7-figures and beyond.';
+        $metaTitle = 'Business Valuation | Value your business for FREE today!';
+        $metaDescription = 'Get a FREE instant business valuation today with our simple online calculator.';
 
         $viewData = array();
         $viewData['metaTitle'] = $metaTitle;
