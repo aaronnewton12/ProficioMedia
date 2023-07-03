@@ -2,3 +2,7 @@
 web_homepage:
     path: /
     controller: App\Controller\WebController::homepage
+
+web_selling_a_business:
+    path: /selling-a-business
+    controller: App\Controller\WebController::sellingABusiness

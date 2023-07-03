@@ -50,4 +50,23 @@ class WebController extends AbstractController
         return $this->render('Web/homepage.html.twig', $viewData);
     }
 
+    /*
+     * View selling a business page
+     *
+     * @param Request $request
+     */
+    public function sellingABusiness(Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $session = $request->getSession();
+
+        $metaTitle = 'Selling a Business in the UK | Business Sales Advisers';
+        $metaDescription = 'Thinking of selling a business in the UK? Speak to one of our expert business sales advisers today!';
+
+        $viewData = array();
+        $viewData['metaTitle'] = $metaTitle;
+        $viewData['metaDescription'] = $metaDescription;
+        return $this->render('Web/selling-a-business.html.twig', $viewData);
+    }
+
 }
