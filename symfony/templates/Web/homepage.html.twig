@@ -28,33 +28,31 @@
                                     <div class="column_attr clearfix" style="background-color:#fff;padding:30px;border-radius:15px; box-shadow: 0px 10px 30px 0px rgba(0, 0, 0, 0.15);">
 
                                         <div id="contactWrapper">
-                                            <form id="contactform">
+                                            {{ form_start(businessValuationForm) }}
                                                 <div class="column five-fifth">
                                                     <h6 style="margin-bottom:0;">Value your business in just 30 seconds</h6>
                                                     <hr />
                                                 </div>
 
                                                 <div class="column one-second">
-                                                    <input placeholder="First name" type="text" name="name" id="name" size="40" aria-required="true" aria-invalid="false" />
+                                                    {{ form_widget(businessValuationForm.first_name, { attr: { placeholder: 'First Name'}}) }}
                                                 </div>
                                                 <div class="column one-second">
-                                                    <input placeholder="Surname" type="text" name="subject" id="subject" size="40" aria-invalid="false" />
-
+                                                    {{ form_widget(businessValuationForm.last_name, { attr: { placeholder: 'Surename'}}) }}
                                                 </div>
                                                 <div class="clearfix" style="margin-bottom:7px;"></div>
                                                 <div class="column one-second">
-                                                    <input placeholder="Phone Number" type="text" name="body" id="body" style="width:100%;" rows="10" aria-invalid="false"/>
+                                                    {{ form_widget(businessValuationForm.phone_number, { attr: { placeholder: 'Phone Number'}}) }}
                                                 </div>
                                                 <div class="column one-second">
-                                                    <input placeholder="Your e-mail" type="email" name="email" id="email" size="40" aria-required="true" aria-invalid="false" />
-
+                                                    {{ form_widget(businessValuationForm.email_address, { attr: { placeholder: 'Email Address'}}) }}
                                                 </div>
 
                                                 <div class="clearfix" style="margin-bottom:10px;"></div>
                                                 <div class="column one">
-                                                    <input type="button" value="Value Your Business" id="submit">
+                                                    <input type="submit" value="Value Your Business" id="submit">
                                                 </div>
-                                            </form>
+                                            {{ form_end(businessValuationForm) }}
                                         </div>
                                     </div>
                                 </div>

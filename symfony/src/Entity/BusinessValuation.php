@@ -316,4 +316,20 @@ class BusinessValuation
         return $this;
     }
 
+    public function getSignature()
+    {
+        // Create a 5 character signature based on the ID and the created data, which
+        // we know have already been peristed and will never change. We use this to
+        // validate users returning the BasicBusinessValuation from an email link.
+        if ($this->getId())
+        {
+            $signatureFull = md5($this->getId() . $this->getCreatedAt()->format('Y-m-d H:i:s'));
+        }
+        else
+        {
+            $signatureFull = md5('');
+        }
+        return substr($signatureFull, 0, 5);
+    }
+
 }

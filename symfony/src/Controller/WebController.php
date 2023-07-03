@@ -2,19 +2,26 @@
 
 namespace App\Controller;
 
-
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 use App\Entity\BusinessValuation;
 
+use App\Repository\BusinessValuationRepository;
+
 use App\Form\Type\StartBusinessValuationType;
+use App\Form\Type\FinishBusinessValuationType;
 
 /*
  * Handle web functionality
  */
-class WebController extends AbstractController
+class WebController extends BaseController
 {
+    public function __construct(BusinessValuationRepository $businessValuationRepository)
+    {
+        $this->businessValuationRepository = $businessValuationRepository;
+    }
+
     /*
      * View homepage
      *
@@ -29,18 +36,18 @@ class WebController extends AbstractController
         $metaDescription = 'Get a FREE instant business valuation today with our simple online calculator.';
 
         $businessValuation = new BusinessValuation();
+        $businessValuation->setCreatedAt(new \DateTime());
 
         $businessValuationForm = $this->createForm(StartBusinessValuationType::class, $businessValuation);
 
         $businessValuationForm->handleRequest($request);
         if ($businessValuationForm->isSubmitted() && $businessValuationForm->isValid()) {
-            $em->persist($businessValuationForm);
+            $em->persist($businessValuation);
 
-            // TODO: Complete!
+            $em->flush();
 
-//            $em->flush();
-//
-//            return $this->performRedirectWithFlashBag($session, 'chat', 'success', 'You have successfully posted a message in the chat.');
+            // Redirect
+            return $this->redirectToRoute('web_valuation', array('id' => $businessValuation->getId(), 'signature' => $businessValuation->getSignature()));
         }
 
         $viewData = array();
@@ -48,6 +55,48 @@ class WebController extends AbstractController
         $viewData['metaDescription'] = $metaDescription;
         $viewData['businessValuationForm']= $businessValuationForm->createView();
         return $this->render('Web/homepage.html.twig', $viewData);
+    }
+
+    /*
+     * Handle the valuation process
+     *
+     * @param Request $request
+     * @param int $id
+     * @param string $signature
+     */
+    public function valuation(Request $request, int $id, string $signature)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $session = $request->getSession();
+
+        $businessValuation = $this->businessValuationRepository->find($id);
+        if (!$businessValuation) {
+            // TODO: 404
+        }
+
+        if ($businessValuation->getSignature() !== $signature) {
+            // TODO: 404
+        }
+
+        $businessValuationForm = $this->createForm(FinishBusinessValuationType::class, $businessValuation);
+
+        $businessValuationForm->handleRequest($request);
+        if ($businessValuationForm->isSubmitted() && $businessValuationForm->isValid()) {
+            $em->persist($businessValuation);
+
+            $em->flush();
+
+            // TODO: Final Route
+            // Redirect
+            //return $this->redirectToRoute('web_valuation', array('id' => $businessValuation->getId(), 'signature' => $businessValuation->getSignature()));
+        }
+
+
+        $viewData = array();
+        $viewData['noindex'] = true;
+        $viewData['businessValuation'] = $businessValuation;
+        $viewData['businessValuationForm'] = $businessValuationForm->createView();
+        return $this->render('Web/valuation.html.twig', $viewData);
     }
 
     /*

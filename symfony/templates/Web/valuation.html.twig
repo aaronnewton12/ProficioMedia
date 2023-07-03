@@ -1,0 +1,55 @@
+{% extends '/base.html.twig' %}
+
+{% block body %}
+    <div class="content_wrapper clearfix">
+        <div class="sections_group">
+            <div class="entry-content">
+                <!-- Hero -->
+                <div id="valuation-calculator" class="section mcb-section no-margin-v full-screen bg-cover" style="background-image:url(/loans3/images/loans3-main-bg.jpg);background-repeat:no-repeat;background-position:center bottom">
+                    <div class="section_wrapper mcb-section-inner">
+                        <div class="wrap mcb-wrap one-second valign-top clearfix">
+                            <div class="mcb-wrap-inner">
+                                <div class="column mcb-column one column_placeholder">
+                                    <div class="placeholder">
+                                        &nbsp;
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="wrap mcb-wrap one-second valign-top clearfix" style="padding:0 1% 0 0">
+                            <div class="mcb-wrap-inner">
+                                <div class="column mcb-column one column_column column-margin-20px">
+                                    <div class="column_attr clearfix align_right mobile_align_center">
+                                        <h1 style="font-size: 48px;">Finish FREE instant business valuation</h1>
+                                    </div>
+                                </div>
+                                <div class="column mcb-column one column_column">
+                                    <div class="column_attr clearfix" style="background-color:#fff;padding:30px;border-radius:15px; box-shadow: 0px 10px 30px 0px rgba(0, 0, 0, 0.15);">
+
+                                        <div id="contactWrapper">
+                                            {{ form_start(businessValuationForm) }}
+                                            <div class="column five-fifth">
+                                                <h6 style="margin-bottom:0;">Value your business in just 30 seconds</h6>
+                                                <hr />
+                                            </div>
+
+
+                                            <div class="column one-second">
+                                                {{ form_widget(businessValuationForm.business_sector, { attr: { placeholder: 'Business Sector' }}) }}
+                                            </div>
+                                            <div class="clearfix" style="margin-bottom:10px;"></div>
+                                            <div class="column one">
+                                                <input type="submit" value="Value Your Business" id="submit">
+                                            </div>
+                                            {{ form_end(businessValuationForm) }}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

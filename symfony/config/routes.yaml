@@ -3,6 +3,10 @@ web_homepage:
     path: /
     controller: App\Controller\WebController::homepage
 
+web_valuation:
+    path: /valuation/{id}/{signature}
+    controller: App\Controller\WebController::valuation
+
 web_selling_a_business:
     path: /selling-a-business
     controller: App\Controller\WebController::sellingABusiness
