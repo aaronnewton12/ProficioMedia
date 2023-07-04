@@ -2,15 +2,20 @@
 web_homepage:
     path: /
     controller: App\Controller\WebController::homepage
-
 web_valuation:
     path: /valuation/{id}/{signature}
     controller: App\Controller\WebController::valuation
-
 web_valuation_confirm:
     path: /valuation-confirm/{id}/{signature}
     controller: App\Controller\WebController::valuationConfirm
-
 web_selling_a_business:
     path: /selling-a-business
     controller: App\Controller\WebController::sellingABusiness
+
+### GuidesController
+guides_list:
+    path: /business-guides/list
+    controller: App\Controller\GuidesController::list
+guides_view:
+    path: /business-guides/view/{slug}
+    controller: App\Controller\GuidesController::view

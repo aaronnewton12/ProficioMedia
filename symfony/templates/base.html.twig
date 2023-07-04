@@ -60,7 +60,7 @@
                             <div class="column one">
                                 <div class="top_bar_left clearfix">
                                     <div class="logo">
-                                        <a id="logo" href="#" title="Business Valuations" data-height="60" data-padding="15"><img class="logo-main scale-with-grid" src="/bv-logo.png" data-retina="bv-logo.png" data-height="44"><img class="logo-sticky scale-with-grid" src="/bv-logo.png" data-retina="bv-logo.png" data-height="44"><img class="logo-mobile scale-with-grid" src="bv-logo.png" data-retina="bv-logo.png" data-height="44"><img class="logo-mobile-sticky scale-with-grid" src="bv-logo.png" data-retina="bv-logo.png" data-height="44"></a>
+                                        <a id="logo" href="{{ path('web_homepage') }}" title="Business Valuations" data-height="60" data-padding="15"><img class="logo-main scale-with-grid" src="/bv-logo.png" data-retina="bv-logo.png" data-height="44"><img class="logo-sticky scale-with-grid" src="/bv-logo.png" data-retina="bv-logo.png" data-height="44"><img class="logo-mobile scale-with-grid" src="bv-logo.png" data-retina="bv-logo.png" data-height="44"><img class="logo-mobile-sticky scale-with-grid" src="bv-logo.png" data-retina="bv-logo.png" data-height="44"></a>
                                     </div>
                                     <div class="menu_wrapper">
                                         <nav id="menu">
@@ -68,21 +68,21 @@
                                                 <li>
                                                     <a href="{{ path('web_homepage') }}"><span>Valuation Calculator</span></a>
                                                 </li>
-                                                <li>
-                                                    <a href="{{ path('web_selling_a_business') }}"><span>Selling a Business</span></a>
-                                                </li>
-                                                <li>
-                                                    <a href="#"><span>Grow</span></a>
-                                                </li>
-                                                <li>
-                                                    <a href="#"><span>Business Guides</span></a>
-                                                </li>
+                                                {#<li>#}
+                                                    {#<a href="{{ path('web_selling_a_business') }}"><span>Selling a Business</span></a>#}
+                                                {#</li>#}
+                                                {#<li>#}
+                                                    {#<a href="#"><span>Grow</span></a>#}
+                                                {#</li>#}
+                                                {#<li>#}
+                                                    {#<a href="{{ path('guides_list') }}"><span>Business Guides</span></a>#}
+                                                {#</li>#}
                                                 <li>
                                                     <a href="#"><span>About Us</span></a>
                                                 </li>
-                                                <li>
-                                                    <a href="#"><span>Contact</span></a>
-                                                </li>
+                                                {#<li>#}
+                                                    {#<a href="#"><span>Contact</span></a>#}
+                                                {#</li>#}
                                             </ul>
                                         </nav><a class="responsive-menu-toggle" href="#"><i class="icon-menu-fine"></i></a>
                                     </div>
