@@ -1,0 +1,157 @@
+{% extends '/base.html.twig' %}
+
+{% block body %}
+    <div class="content_wrapper clearfix">
+        <div class="sections_group">
+            <div class="entry-content">
+                <div class="section mcb-section" id="howitworks" style="padding-top:150px">
+                    <div class="section_wrapper mcb-section-inner">
+                        <div class="wrap mcb-wrap one valign-top clearfix">
+                            <div class="mcb-wrap-inner">
+                                <div class="column mcb-column one column_column">
+                                    <div class="column_attr clearfix align_center">
+
+                                        {% if isSalesReq %}
+                                            <div class="alert alert_success" role="alert">
+                                                You have requested a call to discuss the potential of selling your business! One of our experts will be in touch.
+                                            </div>
+                                        {% endif %}
+
+                                        {% if isGrowthReq %}
+                                            <div class="alert alert_success" role="alert">
+                                                You have requested a call to discuss growing your business! One of our experts will be in touch.
+                                            </div>
+                                        {% endif %}
+
+                                        <h2>Your business is valued at £{{ businessValuation.estimatedValueLower|number_format(0) }} - £{{ businessValuation.estimatedValueUpper|number_format(0) }}</h2>
+                                    </div>
+                                </div>
+                                <div class="column mcb-column one column_divider">
+                                    <hr class="no_line" style="margin:0 auto 20px">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="wrap mcb-wrap one valign-top clearfix" style="padding:0 4%">
+                            <div class="mcb-wrap-inner">
+                                <div class="column mcb-column one column_icon_box">
+                                    <div class="icon_box icon_position_top no_border">
+                                        <a class="" href="#">
+                                            <div class="desc_wrapper">
+                                                <h4 class="title">What does this mean?</h4>
+                                                <div class="desc">
+                                                    From the details that you have provided us with, we estimate that your business is worth £{{ businessValuation.estimatedValueLower|number_format(0) }} - £{{ businessValuation.estimatedValueUpper|number_format(0) }}.
+                                                    The lower valuation of £{{ businessValuation.estimatedValueLower|number_format(0) }} is the value that we would recommend listing your business at if your looking for a quick sale. If your not in a rush, then you should
+                                                    list your business at £{{ businessValuation.estimatedValueUpper|number_format(0) }} - this is if your actually looking to sell your business!
+
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="column mcb-column one column_divider">
+                            <hr class="no_line" style="margin:0 auto 20px">
+                        </div>
+
+                        <div class="wrap mcb-wrap one-second valign-top clearfix" style="padding:0 4%">
+                            <div class="mcb-wrap-inner">
+                                <div class="column mcb-column one column_icon_box">
+                                    <div class="icon_box icon_position_top no_border">
+                                        <a class="" href="#">
+                                            <div class="desc_wrapper">
+                                                <h4 class="title">What drives the value of your business?</h4>
+                                                <div class="desc">
+                                                    Although accountants and academics state that there are many technical ways of valuing a business, the reality is that the value
+                                                    is determined by how much someone is willing to pay for it.
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="wrap mcb-wrap one-second valign-top clearfix" style="padding:0 4%">
+                            <div class="mcb-wrap-inner">
+                                <div class="column mcb-column one column_icon_box">
+                                    <div class="icon_box icon_position_top no_border">
+                                        <a class="" href="#">
+                                            <div class="desc_wrapper">
+                                                <h4 class="title">Saleability</h4>
+                                                <div class="desc">
+                                                    It appears from the information that you have provided us that your business is in a saleable and active sector, and we've seen
+                                                    a number of acquisitions in your sector recently.
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="column mcb-column one column_divider">
+                            <hr class="no_line" style="margin:0 auto 20px">
+                        </div>
+
+                        <div class="wrap mcb-wrap one valign-top clearfix" style="padding:0 4%">
+                            <div class="mcb-wrap-inner">
+                                <div class="column mcb-column one column_icon_box">
+                                    <div class="icon_box icon_position_top no_border">
+                                        <a class="" href="#">
+                                            <div class="desc_wrapper">
+                                                <h4 class="title">What's Next?</h4>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="wrap mcb-wrap one-second valign-top clearfix" style="padding:0 4%">
+                            <div class="mcb-wrap-inner">
+                                <div class="column mcb-column one column_icon_box">
+                                    <div class="icon_box icon_position_top no_border">
+                                        <a class="" href="#">
+                                            <div class="desc_wrapper">
+                                                <h4 class="title">Selling Your Business</h4>
+                                                <div class="desc">
+                                                    If you've decided that it's time to sell your business, then we can put you in touch with a business sales expert
+                                                    who can help to get you started on your sales journey.
+                                                    <br />
+                                                    <br />
+
+                                                    <a class="button scroll" href="{{ path('web_valuation_confirm', { id: businessValuation.id, signature: businessValuation.signature, req: 'sales' }) }}" style="background-color:#65ca46!important;color:#fff;"><span class="button_label"><strong>Request a Call</strong></span></a>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="wrap mcb-wrap one-second valign-top clearfix" style="padding:0 4%">
+                            <div class="mcb-wrap-inner">
+                                <div class="column mcb-column one column_icon_box">
+                                    <div class="icon_box icon_position_top no_border">
+                                        <a class="" href="#">
+                                            <div class="desc_wrapper">
+                                                <h4 class="title">Growing Your Business</h4>
+                                                <div class="desc">
+                                                    Interested in growing your business and increasing it's valuation? Request a call to speak to one of our growth strategists!
+
+                                                    <br />
+                                                    <br />
+
+                                                    <a class="button scroll" href="{{ path('web_valuation_confirm', { id: businessValuation.id, signature: businessValuation.signature, req: 'growth' }) }}" style="background-color:#65ca46!important;color:#fff;"><span class="button_label"><strong>Request a Call</strong></span></a>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

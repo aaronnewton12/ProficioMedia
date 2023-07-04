@@ -102,6 +102,26 @@ class BusinessValuation
     private $estimated_value_met_expectations;
 
     /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $year_established;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $company_name;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $is_sale_call_requested = false;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $is_growth_call_requested = false;
+
+    /**
      * @Assert\Type("\DateTimeInterface")
      * @ORM\Column(type="datetime", nullable=true)
      */
@@ -380,6 +400,109 @@ class BusinessValuation
         $reasonForValuation['Other'] = 'Other';
 
         return $reasonForValuation;
+    }
+
+    public function getYearEstablished(): ?string
+    {
+        return $this->year_established;
+    }
+
+    public function setYearEstablished(string $year_established): self
+    {
+        $this->year_established = $year_established;
+
+        return $this;
+    }
+
+    public function getCompanyName(): ?string
+    {
+        return $this->company_name;
+    }
+
+    public function setCompanyName(string $company_name): self
+    {
+        $this->company_name = $company_name;
+
+        return $this;
+    }
+
+    public function checkHasRequirements()
+    {
+        $hasRequirements = true;
+
+        if (!$this->getFirstName()) {
+            $hasRequirements = false;
+        }
+
+        if (!$this->getLastName()) {
+            $hasRequirements = false;
+        }
+
+        if (!$this->getPhoneNumber()) {
+            $hasRequirements = false;
+        }
+
+        if (!$this->getEmailAddress()) {
+            $hasRequirements = false;
+        }
+
+        if (!$this->getBusinessSector()) {
+            $hasRequirements = false;
+        }
+
+        if (!$this->getReasonForValuation()) {
+            $hasRequirements = false;
+        }
+
+        if (!$this->getAnnualTurnover()) {
+            $hasRequirements = false;
+        }
+
+        if (!$this->getNetProfit()) {
+            $hasRequirements = false;
+        }
+
+        if (!$this->getAssetsValue()) {
+            $hasRequirements = false;
+        }
+
+        if (!$this->getBusinessPostcode()) {
+            $hasRequirements = false;
+        }
+
+        if (!$this->getYearEstablished()) {
+            $hasRequirements = false;
+        }
+
+        if (!$this->getCompanyName()) {
+            $hasRequirements = false;
+        }
+
+        return $hasRequirements;
+    }
+
+    public function getIsSaleCallRequested(): ?bool
+    {
+        return $this->is_sale_call_requested;
+    }
+
+    public function setIsSaleCallRequested(bool $is_sale_call_requested): self
+    {
+        $this->is_sale_call_requested = $is_sale_call_requested;
+
+        return $this;
+    }
+
+    public function getIsGrowthCallRequested(): ?bool
+    {
+        return $this->is_growth_call_requested;
+    }
+
+    public function setIsGrowthCallRequested(bool $is_growth_call_requested): self
+    {
+        $this->is_growth_call_requested = $is_growth_call_requested;
+
+        return $this;
     }
 
 }

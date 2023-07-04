@@ -1,0 +1,9 @@
+#contactWrapper input {
+    border-width: 2px !important;
+    border-radius: 10px !important;
+}
+
+#contactWrapper select {
+    border-width: 2px;
+    border-radius: 10px;
+}

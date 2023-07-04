@@ -4,7 +4,7 @@ namespace App\Form\Type;
 
 use App\Entity\BusinessValuation;
 
-use Client\AppBundle\Entity\Business;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -17,8 +17,9 @@ class StartBusinessValuationType extends AbstractType
         $builder
             ->add('first_name')
             ->add('last_name')
-            ->add('phone_number')
-            ->add('email_address')
+            ->add('reason_for_valuation', ChoiceType::class, array(
+                'choices' => BusinessValuation::getReasonForValuationChoices()
+            ))
         ;
     }
 

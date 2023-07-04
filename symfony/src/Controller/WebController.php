@@ -71,11 +71,11 @@ class WebController extends BaseController
 
         $businessValuation = $this->businessValuationRepository->find($id);
         if (!$businessValuation) {
-            // TODO: 404
+            return $this->redirectToRoute('web_homepage');
         }
 
         if ($businessValuation->getSignature() !== $signature) {
-            // TODO: 404
+            return $this->redirectToRoute('web_homepage');
         }
 
         $businessValuationForm = $this->createForm(FinishBusinessValuationType::class, $businessValuation);
@@ -86,9 +86,20 @@ class WebController extends BaseController
 
             $em->flush();
 
-            // TODO: Final Route
+            if (!$businessValuation->checkHasRequirements()) {
+                return $this->redirectToRoute('web_valuation', array('id' => $businessValuation->getId(), 'signature' => $businessValuation->getSignature()));
+            }
+
+            $lowerValuationValue = ($businessValuation->getNetProfit() * 3) + $businessValuation->getAssetsValue();
+            $upperValuationValue = ($businessValuation->getNetProfit() * 4)  + $businessValuation->getAssetsValue();
+
+            $businessValuation->setEstimatedValueLower($lowerValuationValue);
+            $businessValuation->setEstimatedValueUpper($upperValuationValue);
+
+            $em->flush();
+
             // Redirect
-            //return $this->redirectToRoute('web_valuation', array('id' => $businessValuation->getId(), 'signature' => $businessValuation->getSignature()));
+            return $this->redirectToRoute('web_valuation_confirm', array('id' => $businessValuation->getId(), 'signature' => $businessValuation->getSignature()));
         }
 
 
@@ -97,6 +108,56 @@ class WebController extends BaseController
         $viewData['businessValuation'] = $businessValuation;
         $viewData['businessValuationForm'] = $businessValuationForm->createView();
         return $this->render('Web/valuation.html.twig', $viewData);
+    }
+
+    /*
+     * Show the valuation
+     *
+     * @param Request $request
+     * @param int $id
+     * @param string $signature
+     */
+    public function valuationConfirm(Request $request, int $id, string $signature)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $session = $request->getSession();
+
+        $businessValuation = $this->businessValuationRepository->find($id);
+        if (!$businessValuation) {
+            return $this->redirectToRoute('web_homepage');
+        }
+
+        if ($businessValuation->getSignature() !== $signature) {
+            return $this->redirectToRoute('web_homepage');
+        }
+
+        if (!$businessValuation->getEstimatedValueLower()) {
+            return $this->redirectToRoute('web_valuation', array('id' => $businessValuation->getId(), 'signature' => $businessValuation->getSignature()));
+        }
+
+        $isSalesReq = false;
+        if ($request->get('req') && $request->get('req') == 'sales') {
+            $isSalesReq = true;
+
+            $businessValuation->setIsSaleCallRequested(true);
+
+            $em->flush();
+        }
+        $isGrowthReq = false;
+        if ($request->get('req') && $request->get('req') == 'growth') {
+            $isGrowthReq = true;
+
+            $businessValuation->setIsGrowthCallRequested(true);
+
+            $em->flush();
+        }
+
+        $viewData = array();
+        $viewData['noindex'] = true;
+        $viewData['isSalesReq'] = $isSalesReq;
+        $viewData['isGrowthReq'] = $isGrowthReq;
+        $viewData['businessValuation'] = $businessValuation;
+        return $this->render('Web/valuation-confirm.html.twig', $viewData);
     }
 
     /*

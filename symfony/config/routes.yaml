@@ -7,6 +7,10 @@ web_valuation:
     path: /valuation/{id}/{signature}
     controller: App\Controller\WebController::valuation
 
+web_valuation_confirm:
+    path: /valuation-confirm/{id}/{signature}
+    controller: App\Controller\WebController::valuationConfirm
+
 web_selling_a_business:
     path: /selling-a-business
     controller: App\Controller\WebController::sellingABusiness

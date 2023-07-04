@@ -16,12 +16,12 @@ class FinishBusinessValuationType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
+            ->add('phone_number')
+            ->add('email_address')
+            ->add('year_established')
+            ->add('company_name')
             ->add('business_sector', ChoiceType::class, array(
                 'choices' => BusinessValuation::getBusinessSectorChoices()
-            ))
-
-            ->add('reason_for_valuation', ChoiceType::class, array(
-                'choices' => BusinessValuation::getReasonForValuationChoices()
             ))
             ->add('annual_turnover')
             ->add('net_profit')
