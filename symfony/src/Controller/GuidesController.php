@@ -60,8 +60,13 @@ class GuidesController extends BaseController
             // TODO: perm redirect
         }
 
-        $metaTitle = 'Free Business Guides | Business Valuations';
-        $metaDescription = 'Expert, jargon-free guides to help you understanding growing, valuing and selling a business.';
+        if ($slug === 'what-is-a-business-valuation') {
+            $metaTitle = 'What is a business valuation? | Business Valuations';
+            $metaDescription = 'A business valuation is a series of calculations against your businesses key metrics to give your business a saleable value';
+        } else {
+            $metaTitle = 'Free Business Guides | Business Valuations';
+            $metaDescription = 'Expert, jargon-free guides to help you understanding growing, valuing and selling a business.';
+        }
 
         $viewData = array();
         $viewData['metaTitle'] = $metaTitle;
