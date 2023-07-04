@@ -332,4 +332,54 @@ class BusinessValuation
         return substr($signatureFull, 0, 5);
     }
 
+    public static function getBusinessSectorChoices(): array
+    {
+        $businessSectors = array();
+        $businessSectors['Business Sector'] = null;
+        $businessSectors['Agriculture'] = 'Agriculture';
+        $businessSectors['Automotive'] = 'Automotive';
+        $businessSectors['Building & Construction'] = 'Building & Construction';
+        $businessSectors['Care, Health & Medical'] = 'Care, Health & Medical';
+        $businessSectors['Catering & Leisure'] = 'Catering & Leisure';
+        $businessSectors['Distribution & Storage'] = 'Distribution & Storage';
+        $businessSectors['Education'] = 'Education';
+        $businessSectors['Engineering'] = 'Engineering';
+        $businessSectors['Environmental'] = 'Environmental';
+        $businessSectors['Financial'] = 'Financial';
+        $businessSectors['Food & Drink'] = 'Food & Drink';
+        $businessSectors['Hire'] = 'Hire';
+        $businessSectors['IT & Telecoms'] = 'IT & Telecoms';
+        $businessSectors['Land & Property'] = 'Land & Property';
+        $businessSectors['Manufacturing & Industrial'] = 'Manufacturing & Industrial';
+        $businessSectors['Motor, Transport & Marine'] = 'Motor, Transport & Marine';
+        $businessSectors['Online / E-commerce'] = 'Online / E-commerce';
+        $businessSectors['Oil, Gas & Mining'] = 'Oil, Gas & Mining';
+        $businessSectors['Petrochemical, Pharmaceutical & Cosmetics'] = 'Petrochemical, Pharmaceutical & Cosmetics';
+        $businessSectors['Print/Publishing, Advertising & Media'] = 'Print/Publishing, Advertising & Media';
+        $businessSectors['Professional Services/Consultancy'] = 'Professional Services/Consultancy';
+        $businessSectors['Recruitment Training'] = 'Recruitment Training';
+        $businessSectors['Retail'] = 'Retail';
+        $businessSectors['Renewables / Energy'] = 'Renewables / Energy';
+        $businessSectors['Security'] = 'Security';
+        $businessSectors['Waste Recycling'] = 'Waste Recycling';
+
+        return $businessSectors;
+    }
+
+    public static function getReasonForValuationChoices(): array
+    {
+        $reasonForValuation = array();
+        $reasonForValuation['Reason For Valuation'] = null;
+        $reasonForValuation['Potential Sale'] = 'Potential Sale';
+        $reasonForValuation['Non Competitive Interests'] = 'Non Competitive Interests';
+        $reasonForValuation['Development Capital'] = 'Development Capital';
+        $reasonForValuation['Ownership Disputes'] = 'Ownership Disputes';
+        $reasonForValuation['Retirement Succession Planning'] = 'Retirement Succession Planning';
+        $reasonForValuation['Investment'] = 'Investment';
+        $reasonForValuation['Curiosity'] = 'Curiosity';
+        $reasonForValuation['Other'] = 'Other';
+
+        return $reasonForValuation;
+    }
+
 }

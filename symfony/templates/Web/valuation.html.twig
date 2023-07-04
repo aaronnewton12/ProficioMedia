@@ -37,7 +37,20 @@
                                             <div class="column one-second">
                                                 {{ form_widget(businessValuationForm.business_sector, { attr: { placeholder: 'Business Sector' }}) }}
                                             </div>
+                                            <div class="column one-second">
+                                                {{ form_widget(businessValuationForm.reason_for_valuation, { attr: { placeholder: 'Reason For Valuation' }}) }}
+                                            </div>
                                             <div class="clearfix" style="margin-bottom:10px;"></div>
+
+                                            <div class="column one-second">
+                                                {{ form_widget(businessValuationForm.annual_turnover, { attr: { placeholder: 'Annual Turnover' }}) }}
+                                            </div>
+                                            <div class="column one-second">
+                                                {{ form_widget(businessValuationForm.net_profit, { attr: { placeholder: 'Net Profit' }}) }}
+                                            </div>
+                                            <div class="clearfix" style="margin-bottom:10px;"></div>
+
+                                            
                                             <div class="column one">
                                                 <input type="submit" value="Value Your Business" id="submit">
                                             </div>
